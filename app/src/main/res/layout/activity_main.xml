@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up Form"
+        android:textSize="25dp"
+        android:layout_gravity="center"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Enter Name :"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:id="@+id/etName"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="e-mail :"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:id="@+id/etEmail"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Password :"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:id="@+id/etPassword"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Confirm Password:"
+            android:textSize="13dp" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:id="@+id/etConfirmPassword"
+            android:layout_marginLeft="25dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Gender :"
+            android:layout_marginTop="7dp"
+            android:textSize="17dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="88dp"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/rbMale"
+                android:textSize="17dp" />
+
+            <RadioButton
+                android:layout_width="107dp"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/rbFemale"
+                android:textSize="17dp" />
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Sports"
+            android:textSize="17dp" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cricket"
+            android:textSize="12dp"
+            android:layout_marginLeft="25dp"
+            android:paddingRight="5dp"
+            android:id="@+id/cbCricket"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hockey"
+            android:textSize="12dp"
+            android:id="@+id/cbHockey"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FootBall"
+            android:textSize="12dp"
+            android:id="@+id/cbFootball"
+            />
+        />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Date of Birth :"
+            android:inputType="date"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/etBirthDate"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="City :"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/etCity"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Country :"
+            android:textSize="17dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/etCountry"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="401dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Skills :"
+            android:textSize="17dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="25dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beginner"
+                android:textSize="16dp"
+                android:id="@+id/rbBeginner"
+                />
+
+            <RadioButton
+                android:layout_width="127dp"
+                android:layout_height="wrap_content"
+                android:text="Advance"
+                android:textSize="16dp"
+                android:id="@+id/rbAdvance"
+                />
+        </RadioGroup>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        >
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cbTerms"
+            android:text="I accept the terms and conditions"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="13dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:background="@color/design_default_color_primary_variant"
+            android:textSize="20dp"
+            android:onClick="submitData"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear"
+            android:layout_marginLeft="12dp"
+            android:background="@color/design_default_color_primary_variant"
+            android:textSize="20dp"
+            android:onClick="clearData"
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Output Box"
+        android:textSize="16dp"
+        android:textAlignment="center"
+        android:id="@+id/tvOutputBox"
+        />
+
+</LinearLayout>
