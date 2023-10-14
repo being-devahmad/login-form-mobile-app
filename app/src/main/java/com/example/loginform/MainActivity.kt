@@ -58,21 +58,32 @@ class MainActivity : AppCompatActivity() {
         var password = etPassword.text.toString()
         var confirmPassword = etConfirmPassword.text.toString();
         var gender = if (rbMale.isChecked) "Male" else if (rbFemale.isChecked) "Female" else "";
-        var cricket = cbCricket.isChecked;
-        var hockey = cbHockey.isChecked;
-        var football = cbFootball.isChecked;
         var birthData = etBirthDate.text.toString();
         var city = etCity.text.toString();
         var country = etCountry.text.toString();
-        var beginner = rbBeginner.isChecked;
-        var advance = rbAdvance.isChecked;
-        var terms = cbTerms.isChecked
+        var skills = if (rbBeginner.isChecked) "Beginer" else "Advance"
 
-        if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
-            val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nCity: $city\nCountry: $country";
-            tvOutputBox.text = userData
-        } else {
-            val message = "Please submit all details"
+
+        if(password == confirmPassword){
+           if(cbTerms.isChecked){
+               if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                   val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nBirth Data: $birthData\nCity: $city\nCountry: $country\nSkills: $skills";
+                   tvOutputBox.text = userData
+               }
+               else {
+                   val message = "Please submit all details"
+                   val duration = Toast.LENGTH_SHORT
+                   val toast = Toast.makeText(applicationContext, message, duration)
+                   toast.show()
+               }
+           }else{
+               val message = "First of all , agree on our terms and conditions"
+               val duration = Toast.LENGTH_SHORT
+               val toast = Toast.makeText(applicationContext, message, duration)
+               toast.show()
+           }
+        } else{
+            val message = "Passwords didn't match"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(applicationContext, message, duration)
             toast.show()
