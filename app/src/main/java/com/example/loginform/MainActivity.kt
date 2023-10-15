@@ -58,16 +58,28 @@ class MainActivity : AppCompatActivity() {
         var password = etPassword.text.toString()
         var confirmPassword = etConfirmPassword.text.toString();
         var gender = if (rbMale.isChecked) "Male" else if (rbFemale.isChecked) "Female" else "";
+        var cricket = "";
+            if(cbCricket.isChecked){
+            cricket = "Cricket"
+        }
+        var football = "";
+            if(cbFootball.isChecked){
+                football = "Football";
+            }
+        var hockey = "";
+            if(cbHockey.isChecked) {
+                hockey = "Hockey"
+        }
         var birthData = etBirthDate.text.toString();
         var city = etCity.text.toString();
         var country = etCountry.text.toString();
-        var skills = if (rbBeginner.isChecked) "Beginer" else "Advance"
+        var skills = if (rbBeginner.isChecked) "Beginner" else "Advance"
 
 
         if(password == confirmPassword){
            if(cbTerms.isChecked){
                if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
-                   val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nBirth Data: $birthData\nCity: $city\nCountry: $country\nSkills: $skills";
+                   val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nSports: $cricket  $football  $hockey\nBirth Data: $birthData\nCity: $city\nCountry: $country\nSkills: $skills";
                    tvOutputBox.text = userData
                }
                else {
