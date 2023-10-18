@@ -173,27 +173,60 @@
         />
 
     </LinearLayout>
+
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="348dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="13dp"
-        >
+        android:layout_marginLeft="13dp">
 
         <TextView
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:text="Date of Birth :"
             android:inputType="date"
-            android:textSize="17dp"/>
+            android:text="Date of Birth :"
+            android:textSize="17dp" />
 
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="40dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:id="@+id/etBirthDate"
+            android:textSize="15dp"
+            android:hint="DD/MM/YYYY"
+            android:id="@+id/tvDob"
             />
 
+        <!--        <EditText-->
+        <!--            android:layout_width="200dp"-->
+        <!--            android:layout_height="40dp"-->
+        <!--            android:layout_marginLeft="25dp"-->
+        <!--            android:hint="DD/MM//YYYY"-->
+        <!--            android:id="@+id/etBirthDate"-->
+        <!--            />-->
+        <ToggleButton
+            android:id="@+id/tbToggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:onClick="getCalender"
+            android:textOn="Set date"
+            android:textOff="Show"
+             />
+
+
     </LinearLayout>
+
+    <DatePicker
+        android:id="@+id/dpDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="144dp"
+        android:layout_gravity="center"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:visibility="gone"
+
+        />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

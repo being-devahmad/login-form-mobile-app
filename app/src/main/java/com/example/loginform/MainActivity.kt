@@ -3,11 +3,15 @@ package com.example.loginform
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.CalendarView
 import android.widget.CheckBox
+import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ToggleButton
+import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +31,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var rbAdvance : RadioButton;
     lateinit var cbTerms : CheckBox;
     lateinit var tvOutputBox : TextView;
-
+    lateinit var dpDOB : DatePicker;
+    lateinit var tvDob : TextView;
+    lateinit var tbToggle : ToggleButton
+    var age: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +49,16 @@ class MainActivity : AppCompatActivity() {
         cbCricket = findViewById(R.id.cbCricket);
         cbHockey = findViewById(R.id.cbHockey);
         cbFootball = findViewById(R.id.cbFootball);
-        etBirthDate = findViewById(R.id.etBirthDate);
+//        etBirthDate = findViewById(R.id.etBirthDate);
+        dpDOB = findViewById(R.id.dpDOB);
         etCity = findViewById(R.id.etCity);
         etCountry = findViewById(R.id.etCountry);
         rbBeginner = findViewById(R.id.rbBeginner);
         rbAdvance = findViewById(R.id.rbAdvance);
         cbTerms = findViewById(R.id.cbTerms);
         tvOutputBox = findViewById(R.id.tvOutputBox)
-
+        tvDob = findViewById(R.id.tvDob)
+        tbToggle = findViewById(R.id.tbToggle)
     }
 
     fun submitData(view: View) {
@@ -57,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         var email = etEmail.text.toString();
         var password = etPassword.text.toString()
         var confirmPassword = etConfirmPassword.text.toString();
-        var gender = if (rbMale.isChecked) "Male" else if (rbFemale.isChecked) "Female" else "";
+        var gender = if (rbMale.isChecked) "Male" else  "Female";
         var cricket = "";
             if(cbCricket.isChecked){
             cricket = "Cricket"
@@ -70,32 +79,40 @@ class MainActivity : AppCompatActivity() {
             if(cbHockey.isChecked) {
                 hockey = "Hockey"
         }
-        var birthData = etBirthDate.text.toString();
+//        var birthData = etBirthDate.text.toString();
         var city = etCity.text.toString();
         var country = etCountry.text.toString();
         var skills = if (rbBeginner.isChecked) "Beginner" else "Advance"
 
 
-        if(password == confirmPassword){
-           if(cbTerms.isChecked){
-               if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
-                   val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nSports: $cricket  $football  $hockey\nBirth Data: $birthData\nCity: $city\nCountry: $country\nSkills: $skills";
-                   tvOutputBox.text = userData
-               }
-               else {
-                   val message = "Please submit all details"
-                   val duration = Toast.LENGTH_SHORT
-                   val toast = Toast.makeText(applicationContext, message, duration)
-                   toast.show()
-               }
-           }else{
-               val message = "First of all , agree on our terms and conditions"
-               val duration = Toast.LENGTH_SHORT
-               val toast = Toast.makeText(applicationContext, message, duration)
-               toast.show()
-           }
-        } else{
-            val message = "Passwords didn't match"
+
+        if(age >= 18){
+            if(password == confirmPassword){
+                if(cbTerms.isChecked){
+                    if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+                        val userData = "Name: $name\nEmail: $email\nPassword: $password\nGender: $gender\nSports: $cricket  $football  $hockey\nAge: $age\nCity: $city\nCountry: $country\nSkills: $skills";
+                        tvOutputBox.text = userData
+                    }
+                    else {
+                        val message = "Please submit all details"
+                        val duration = Toast.LENGTH_SHORT
+                        val toast = Toast.makeText(applicationContext, message, duration)
+                        toast.show()
+                    }
+                }else{
+                    val message = "First of all , agree on our terms and conditions"
+                    val duration = Toast.LENGTH_SHORT
+                    val toast = Toast.makeText(applicationContext, message, duration)
+                    toast.show()
+                }
+            } else{
+                val message = "Passwords didn't match"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(applicationContext, message, duration)
+                toast.show()
+            }
+        }else{
+            val message = "You're under age, can't apply"
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(applicationContext, message, duration)
             toast.show()
@@ -120,5 +137,23 @@ class MainActivity : AppCompatActivity() {
         rbAdvance.isChecked = false
         cbTerms.isChecked = false
         tvOutputBox.text = ""
+    }
+
+    fun getCalender(view: View) {
+
+        var day = dpDOB.dayOfMonth
+        var month = dpDOB.month.toInt() + 1;
+        var year = dpDOB.year
+        var birthDate = day.toString() + "/" + month.toString() + "/" + year.toString();
+        var currentYear = Calendar.getInstance().get(Calendar.YEAR)
+        age = currentYear - year;
+
+        if(tbToggle.isChecked){
+            dpDOB.visibility = View.VISIBLE;
+        }else{
+            dpDOB.visibility = View.GONE
+            tvDob.text = birthDate;
+
+        }
     }
 }
