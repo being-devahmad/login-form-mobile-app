@@ -1,5 +1,6 @@
 package com.example.loginform
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,6 +25,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var cbCricket : CheckBox;
     lateinit var cbHockey : CheckBox;
     lateinit var cbFootball : CheckBox;
+    lateinit var cbTableTennis : CheckBox;
+    lateinit var cbBadminton : CheckBox;
     lateinit var etBirthDate : EditText;
     lateinit var etCity : EditText;
     lateinit var etCountry : EditText;
@@ -32,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var cbTerms : CheckBox;
     lateinit var tvOutputBox : TextView;
     lateinit var dpDOB : DatePicker;
-    lateinit var tvDob : TextView;
+    lateinit var etDob : EditText;
     lateinit var tbToggle : ToggleButton
     var age: Int = 0
 
@@ -49,6 +52,8 @@ class MainActivity : AppCompatActivity() {
         cbCricket = findViewById(R.id.cbCricket);
         cbHockey = findViewById(R.id.cbHockey);
         cbFootball = findViewById(R.id.cbFootball);
+//        cbBadminton = findViewById(R.id.cbBadminton);
+//        cbTableTennis = findViewById(R.id.cbTableTennis)
 //        etBirthDate = findViewById(R.id.etBirthDate);
         dpDOB = findViewById(R.id.dpDOB);
         etCity = findViewById(R.id.etCity);
@@ -57,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         rbAdvance = findViewById(R.id.rbAdvance);
         cbTerms = findViewById(R.id.cbTerms);
         tvOutputBox = findViewById(R.id.tvOutputBox)
-        tvDob = findViewById(R.id.tvDob)
+        etDob = findViewById(R.id.tvDob)
         tbToggle = findViewById(R.id.tbToggle)
     }
 
@@ -67,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         var password = etPassword.text.toString()
         var confirmPassword = etConfirmPassword.text.toString();
         var gender = if (rbMale.isChecked) "Male" else  "Female";
+
         var cricket = "";
             if(cbCricket.isChecked){
             cricket = "Cricket"
@@ -79,6 +85,14 @@ class MainActivity : AppCompatActivity() {
             if(cbHockey.isChecked) {
                 hockey = "Hockey"
         }
+//        var badminton = "";
+//        if(cbBadminton.isChecked){
+//            badminton = "Badminton"
+//        }
+//        var tableTennis = "";
+//        if(cbTableTennis.isChecked){
+//            tableTennis = "Table Tennis";
+//        }
 //        var birthData = etBirthDate.text.toString();
         var city = etCity.text.toString();
         var country = etCountry.text.toString();
@@ -150,10 +164,17 @@ class MainActivity : AppCompatActivity() {
 
         if(tbToggle.isChecked){
             dpDOB.visibility = View.VISIBLE;
+
+//           dpDOB.init(dpDOB.year , dpDOB.month , dpDOB.day);
         }else{
-            dpDOB.visibility = View.GONE
-            tvDob.text = birthDate;
+            dpDOB.visibility = View.GONE;
+              etDob.setText(birthDate);
 
         }
+    }
+
+    fun signIn(view: View) {
+        val intent = Intent(applicationContext , MainActivity2::class.java);
+        startActivity(intent)
     }
 }
